@@ -6,7 +6,6 @@ This is an implementation of a Node server that enables authentication of [Fireb
 
 The user should log into Auth0 on the client. The client app should then call the secure `/auth/firebase` endpoint to acquire a Firebase token, which can be used to securely access Firebase real-time databases in the client app.
 
-(The proposed use of this server is to build an app that will display dog information and allow people to comment on the dog breeds in real-time using Firebase.)
 
 ## Dependencies
 
@@ -50,39 +49,6 @@ This protected endpoint will return:
   firebaseToken: {Custom Firebase Token object}
 }
 ```
-
-### /api/dogs (public)
-
-This public endpoint returns an array of the 10 most popular dogs in the US in 2016, ranked by the AKC. The data takes the following shape:
-
-```
-[
-  {
-    "breed": string,
-    "rank": number (1-10),
-    "image": string (URL to CC0 Creative Commons image)
-  },
-  ...
-]
-```
-
-### /api/dog/:rank (protected)
-
-This protected endpoint returns a single dog object of the `rank` specified in the request parameters. The data takes the following shape:
-
-```
-{
-  "breed": string,
-  "rank": number (1-10),
-  "description": string,
-  "personality": string,
-  "energy": string,
-  "group": string,
-  "image": string (URL to CC0 Creative Commons image),
-  "link": string (URL to AKC breed information)
-}
-```
-
 ## License
 
 [MIT](LICENSE)
